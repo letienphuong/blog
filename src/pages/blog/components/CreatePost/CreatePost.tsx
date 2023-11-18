@@ -1,4 +1,4 @@
-import { addPost, cancelEditingPost, finishEditingPost } from 'pages/blog/blog.reducer'
+import { addPost, cancelEditingPost, finishEditingPost } from 'pages/blog/blog.slice'
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from 'store'
@@ -29,7 +29,7 @@ export default function CreatePost() {
       dispatch(finishEditingPost(formData))
     } else {
       // const formDataWithId = { ...formData, id: new Date().toISOString() }
-      const formDataWithId = { ...formData}
+      const formDataWithId = { ...formData }
       dispatch(addPost(formDataWithId))
     }
     setFormData(initialState)
@@ -45,7 +45,11 @@ export default function CreatePost() {
   return (
     <form onSubmit={(e) => handleSubmit(e)} onReset={handleCancelEditingPost}>
       <div className='mb-6'>
-        <label htmlFor='featuredImage' className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'>
+        <label
+          onClick={() => dispatch({ type: 'blog/cancel' })}
+          htmlFor='featuredImage'
+          className='mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300'
+        >
           Title
         </label>
         <input
