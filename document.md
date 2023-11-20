@@ -19,3 +19,20 @@ onClick={handleDelete(post.id)}//KHong duoc viet kieu nay: ham nay chung ta dang
 
 onClick={() => handleDelete(post.id)}// Ham nay goi 1 ham callback
 
+## Khi lam viec voi thu muc moi thi khoi tai package.json
+npm init -y
+
+
+## Fake api server json
+npm i json-server
+
+## Chu y:
+Khong duoc xu ly bat dong bo trong reducer, reducer chi xu ly dong bo thoi
+
+-- Khi ma muon ngan chan api goi nhieu laan thi dung:
+abort cua axios de ngan chan 
+
+- Khi ma dung asyncThunk thi phai dung o extraReducer
+
+? Tai sao khong dung o reducer 
+=> Boi vi dung o reducer thi no se render ra action , ma co dung action de lam gi dau
